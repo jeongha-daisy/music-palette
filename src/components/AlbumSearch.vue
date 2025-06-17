@@ -114,7 +114,7 @@ button {
   border-image: url('@/assets/button.svg') 10 stretch;
   color: #6f4e37;
   font-family: 'Lexend Giga', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
 }
 

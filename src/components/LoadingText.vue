@@ -31,7 +31,7 @@ onMounted(() => {
 <style scoped>
 .loading-text {
   font-family: 'Lexend Giga', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   color: #6f4e37;
   text-align: center;
   margin-top: 50px;
