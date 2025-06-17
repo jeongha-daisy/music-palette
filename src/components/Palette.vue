@@ -50,12 +50,22 @@ const paletteRef = ref(null)
 const currentIndex = ref(null)
 
 function handleCellClick(index) {
-  console.log(index)
   currentIndex.value = index
 }
+async function convertImageToBase64(imageUrl) {
+  const response = await fetch(imageUrl, { mode: 'cors' })
+  const blob = await response.blob()
 
-function addAlbumToPalette(url) {
-  cells.value[currentIndex.value] = url
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onloadend = () => resolve(reader.result)
+    reader.onerror = reject
+    reader.readAsDataURL(blob)
+  })
+}
+async function addAlbumToPalette(url) {
+  const base64Image = await convertImageToBase64(url)
+  cells.value[currentIndex.value] = base64Image
   currentIndex.value = null
 }
 
